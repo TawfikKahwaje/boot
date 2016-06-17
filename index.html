@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>حلويات الصالون الاخضر</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+
+    <style>
+      .page-header{
+        text-align: center;
+      }
+      .jumbotron{
+        text-align: right;
+      }
+      .form-control{
+        text-align: right;
+        height: 36px;
+        display: initial;
+        width: 40%;
+      }
+      .ww{
+      }
+      .noBorder{
+        text-align:center;
+        border: none;
+        width: 100%;
+      }
+
+    </style>
+  </head>
+  <body>
+
+
+  <div class="container" id="questions">
+
+
+    <div class="page-header">
+
+      <h1>حلويات الصالون الاخضر</h1>
+      <h3>إدارة التدقيق الداخلي</h3>
+      <h3>التقرير الدوري للتدقيق الداخلي للفروع</h3>
+      
+    </div>
+
+    <table class="table  table-bordered table-striped" style="color:#000; text-align: center; font-size:large ">
+      <tr>
+        <td class="ww" > <input type="text" name="time" class="noBorder"> </td>
+        <td class="ww">الوقت</td>
+        <td class="ww" id="branchTd"><input type="text" id="branchName" name="time" class="noBorder">  </td>
+        <td class="ww">اسم الفرع</td>
+      </tr>
+
+      <tr>
+        <td class="ww"><input type="text" name="so3ad" class="noBorder">  </td>
+        <td>مدير الفرع</td>
+        <td class="ww" id="dateTd"><input type="text" id="date" name="so3ad" class="noBorder">  </td>
+        <td>التاريخ</td>
+      </tr>
+
+      <tr>
+        <td class="ww"><input type="text" name="so3ad" class="noBorder">  </td>
+        <td>مراقب الفروع</td> 
+        <td class="ww"><input type="text" name="so3ad" class="noBorder">  </td>
+        <td>اليوم</td>
+      </tr>
+    </table>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <script src="js/main.js"></script>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h2 class="modal-title" id="myModalLabel" style="text-align:center;">التقرير</h2>
+          </div>
+          <div class="modal-body" id="tableMo">
+            <table class="table table-bordered table-hover" style="color:#000; text-align: center; font-size:large ;">
+              <tr>
+                <td id="branchNameRe"> </td>
+                <td>الفرع</td>
+              </tr>
+
+              <tr>
+                <td id="dataRe"> </td>
+                <td>التاريخ</td>
+              </tr>
+
+              <tr>
+                <td id="sameryes"> </td>
+                <td>نعم #</td>
+              </tr>
+
+              <tr>
+                <td id="samerno"> </td>
+                <td>لا #</td>
+              </tr>
+
+              <tr>
+                <td id="so3ad"> </td>
+                <td>النسبة المئوية</td>
+              </tr>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" onclick="saveRe()">إغلاق</button>
+            <button type="button" class="btn btn-primary" >حفظ</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    
+  </div> <!--/continer -->
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
