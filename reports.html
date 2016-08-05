@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>حلويات الصالون الاخضر</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Parse -->
+    <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script> -->
+    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
+    
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+    <script>
+    $( function() {
+      $("#datepicker").datepicker();
+    } );
+
+    $( function() {
+      $("#datepicker2").datepicker();
+    } );
+    </script>
+
+
+    <style>
+      .page-header{
+        text-align: center;
+      }
+      .jumbotron{
+        text-align: right;
+      }
+      .form-control{
+        text-alonIndexLoadign: right;
+        height: 36px;
+        display: initial;
+        width: 40%;
+      }
+      .ww{
+      }
+      .noBorder{
+        text-align:center;
+        border: none;
+        width: 100%;
+      }
+      .optionClass{
+
+      }
+      .tdTable{
+        width: 20%;
+      }
+      .td2Table{
+        width: 30%;
+      }
+      .nav{
+    max-height: 200px;
+    overflow-y:scroll; 
+    }
+    .datepicker{
+      text-align: center;
+    }
+
+    </style>
+  </head>
+  <body>
+
+
+
+  <div class="container" id="questions">
+
+    <div class="page-header">
+
+      <a href="enter.html"> <h1>حلويات الصالون الاخضر</h1>  </a>
+      
+    </div>
+
+    <table class="table  table-bordered table-striped" id="selectTable" style="color:#000; text-align: center; font-size:large ">
+      <tr>
+        <td  id="branchTd" colspan="2">
+          <select class="form-control noBorder" id="branchSelectRe"  onchange="getReport()" style="width:80% ; text-indent: 40%; font-size: large;">
+            <option class="optionClass"></option>
+            <option class="optionClass">جرش</option>
+            <option class="optionClass">باب عمان</option>
+            <option class="optionClass">المفرق</option>
+            <option class="optionClass">عجلون</option>
+            <option class="optionClass">كفرنجه</option>
+            <option class="optionClass">البقعة</option>
+            <option class="optionClass">البقعة الشوؤن</option>
+            <option class="optionClass">المفرق الهاشمي</option>
+          </select>
+        </td>
+        <td style="padding-top: 1.3%;" colspan="2">اسم الفرع</td>
+      </tr>
+
+      <tr>
+        <td><p><input class="datepicker" type="text" id="datepicker" onchange="test()"></p></td>
+        <td>الى</td>
+        <td><p><input class="datepicker" type="text" id="datepicker2" onchange="test()"></p></td>
+        <td>من</td>
+      </tr>
+      <tr>
+        <td  style="width : 100%" colspan="4"> <button  type="button" class="btn btn-default" style="font-size: x-large; width : 100%" onclick="getReport()">عرض</button></td>
+      </tr>
+
+    </table>
+
+
+
+  
+
+
+    <table class="table table-bordered table-hover" id="monthlyTable"
+    style="color:#000;
+    text-align: center; 
+    font-size:large ;
+    display: 'none'; ">
+              <tr>
+                <td id="monthAvg" td2Table> </td>
+                <td class="tdTable">عدد الزيارات </td>
+
+              </tr>
+              <tr>
+                <td id="avg" td2Table> </td>
+                <td class="tdTable">المعدل</td>
+
+              </tr>
+
+              <tr>
+                <td id="best" td2Table> </td>
+                <td class="tdTable">اعلى علامة</td>
+
+              </tr>
+
+              <tr>
+                <td id="worst" td2Table> </td>
+                <td class="tdTable">اقل علامة</td>
+
+              </tr>
+
+
+
+            </table>
+
+
+    <ul class="nav" id="reportsList" style="text-align:right ; font-size: large; display:block">
+
+    </ul>
+
+
+    <table class="table table-bordered table-hover" id="reportTable"
+    style="color:#000;
+    text-align: center; 
+    font-size:large ;
+    display: none; ">
+              <tr>
+                
+                <td id="dataTable" td2Table> </td>
+                <td class="tdTable">التاريخ</td>
+                <td id="percentageTable" td2Table> </td>
+                <td class="tdTable">العلامة</td>
+              </tr>
+
+            
+              <tr>
+                <td id="dayTable" td2Table> </td>
+                <td class="tdTable">اليوم</td>
+                <td id="timeTable" td2Table> </td>
+                <td class="tdTable">الوقت</td>
+              </tr>
+
+              <tr>
+                <td id="yesTable" td2Table> </td>
+                <td class="tdTable">نعم #</td>
+                <td id="noTable" td2Table> </td>
+                <td class="tdTable">لا #</td>
+              </tr>
+
+              <tr>
+                <td id="brunchMangerTable" td2Table> </td>
+                <td class="tdTable">مدير الفرع</td>
+                <td id="brunchCareTable" td2Table> </td>
+                <td class="tdTable">مراقب الفروع</td>
+              </tr>
+
+              <tr id="detiles">
+                
+                
+              </tr>
+
+            </table>
+
+
+              
+
+
+    <table class="table table-bordered table-hover" id="detialsTable"
+      style="color:#000;
+      text-align: right; 
+      font-size:large ;
+      display: none;
+       ">
+
+      <tr>
+        <td  colspan="4" onclick="print()">طباعة</td>
+      </tr>
+
+
+
+    </table>
+
+
+
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+
+    <script src="js/main.js"></script>
+
+    <!-- Modal 
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h2 class="modal-title" id="myModalLabel" style="text-align:center;">التقرير</h2>
+          </div>
+          <div class="modal-body" id="tableMo">
+            <table class="table table-bordered table-hover" style="color:#000; text-align: center; font-size:large ;">
+              <tr>
+                <td id="branchNameRe"> </td>
+                <td>الفرع</td>
+              </tr>
+
+              <tr>
+                <td id="dataRe"> </td>
+                <td>التاريخ</td>
+              </tr>
+
+              <tr>
+                <td id="sameryes"> </td>
+                <td>نعم #</td>
+              </tr>
+
+              <tr>
+                <td id="samerno"> </td>
+                <td>لا #</td>
+              </tr>
+
+              <tr>
+                <td id="so3ad"> </td>
+                <td>النسبة المئوية</td>
+              </tr>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" onclick="saveRe()">إغلاق</button>
+            <button type="button" class="btn btn-primary" >حفظ</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    
+  </div> /continer -->
+
+
+
+
+
+
+</script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
